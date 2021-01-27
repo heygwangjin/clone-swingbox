@@ -33,7 +33,30 @@ export class Dialog {
 
   animate(ctx) {
     ctx.beginPath();
-    ctx.fillStyle = '#f4e55a';
+    ctx.fillStyle = "#f4e55a";
     ctx.fillRect(this.pos.x, this.pos.y, WIDTH, HEIGHT);
+  }
+
+  down(point) {
+    if (point.collide(this.pos, WIDTH, HEIGHT)) {
+      this.isDown = true;
+      this.startPos = this.pos.clone();
+      this.downPos = point.clone();
+      this.mousePos = point.clone().subtract(this.pos);
+
+      return this;
+    } else {
+      return null;
+    }
+  }
+
+  move(point) {
+    if (this.isDown) {
+      this.target = this.startPos.clone().add(point).subtract(this.downPos);
+    }
+  }
+
+  up() {
+    this.isDown = false;
   }
 }
