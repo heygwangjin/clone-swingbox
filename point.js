@@ -18,11 +18,11 @@ export class Point {
 
   reduce(value) {
     this.x *= value;
-    this.y -= value;
+    this.y *= value;
     return this;
   }
 
-  collide(point, width, hegiht) {
+  collide(point, width, height) {
     if (this.x >= point.x && this.x <= point.x + width && this.y >= point.y && this.y <= point.y + height) {
       return true;
     } else {
