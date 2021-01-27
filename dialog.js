@@ -38,7 +38,7 @@ export class Dialog {
   }
 
   down(point) {
-    if (point.collide(this.pos, WIDTH, HEIGHT) {
+    if (point.collide(this.pos, WIDTH, HEIGHT)) {
       this.isDown = true;
       this.startPos = this.pos.clone();
       this.downPos = point.clone();
