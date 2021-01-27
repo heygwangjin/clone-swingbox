@@ -57,6 +57,26 @@ class App{
     for (let i = 0; i < this.items.length; i++) {
       this.items[i].animate(this.ctx);
     }
+
+    if (this.curItem) {
+      this.ctx.fillStyle = "#ff4338";
+      this.ctx.strokeSyle = "#ff4338";
+
+      /* 마우스의 움직임을 나타내는 빨간색 점을 생성해 주는 코드*/
+      this.ctx.beginPath();
+      this.ctx.arc(this.mousePos.centerPos.x, this.mousePos.centerPos.y, 8, 0, Math.PI * 2);
+      this.ctx.fill();
+
+      /* 노란색 상자 객체를 클릭 했을 때 빨간색 점이 생기게 해주는 코드*/
+      this.ctx.beginPath();
+      this.ctx.arc(this.curItem.centerPos.x, this.curItem.centerPos.y, 8, 0, Math.PI * 2);
+      this.ctx.fill();
+
+      /* 빨간색 점과 점 사이를 잇는 선을 그려주는 코드*/
+      this.ctx.beginPath();
+      this.ctx.moveTo(this.mousePos.x, this.mousePos.y);
+      this.ctx.lineTo(this.curItem.centerPos.x, this.curItem.centerPos.y);
+      this.ctx.stroke();
   }
 
   onDown(e) {
