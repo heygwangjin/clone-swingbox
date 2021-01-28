@@ -38,7 +38,7 @@ export class Dialog {
     this.centerPos = this.pos.clone().add(this.mousePos);
 
     ctx.beginPath();
-    ctx.fillStyle = "#f4e55a";
+    ctx.fillStyle = "#F9E4B7";
     ctx.fillRect(this.pos.x, this.pos.y, WIDTH, HEIGHT);
   }
 
